@@ -1,0 +1,34 @@
+{
+    "editor.tokenColorCustomizations": {
+        "[ReUI Default Bordered (react-native)]": {
+            "comments": "#b17034",
+        },
+        "[Theodora's Scrimba]": {
+            "comments": "#76fcf57e",
+            "textMateRules": [
+                {
+                    "scope": "punctuation",
+                    "settings": {
+                        "foreground": "#ffffff",
+                    }
+                }
+            ]
+        },
+        "[Atom Material Theme]": {
+            "comments": "#76fcf57e",
+            "textMateRules": [
+                {
+                    "scope": "keyword.operator",
+                    "settings": {}
+                }
+            ]
+        }
+    },
+    "editor.fontLigatures": false,
+    "editor.semanticHighlighting.enabled": false,   
+    "editor.fontSize": 15, //1666666 3999999
+     "editor.fontFamily": "fira code", //400
+
+    //  "editor.fontSize": 16, //1666666 3999999
+    //  "editor.fontFamily": "", //400
+}

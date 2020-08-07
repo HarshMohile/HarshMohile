@@ -1,0 +1,200 @@
+Source Code Pro at 15.3 or 14.7 font size-400 
+Fira code 
+
+
+*********************life cycle methods*******************************************
+
+1. componentDidMount(){
+
+     when a new component is added /loaded for the first time on screen .
+     Any changes made by the component .It wont remount . Its like constructor that loads during class loading.
+     get the data i need to display on screen 
+     i.e AJAX calls and API calls to send/recive  request/recieve from/to server/anything.
+
+}
+
+2.componentwillrecieveprops(nextProps){
+
+    Deprecated . Used when parent component is going to recieve props and modified it.
+    Automatically child will also recieve so .
+        if (nextProps.whatever !== this.props.whatever) {
+            // do something important here
+        }
+}
+
+
+3. shouldComponentUpdate(nextProps, nextState) {
+        // return true if want it to update
+        // return false if not
+        Basically it gives you power to decide if you want to update/ render() again .
+        Depending upon changes  (state ,props) .
+        react updates render() everytime so to reduce time /complexity overhead even if theres changes /no changes.
+        Dev can decidde to update component or not .
+    }
+
+
+
+  4.    componentWillUnmount() {
+        // teardown or cleanup your code before your component disappears
+        // (E.g. remove event listeners)
+
+        you died. garbage collector gc.close()
+    }
+
+
+  5. static getDerivedStateFromProps(props, state) {
+        // return the new, updated state based upon the props
+        // https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+        // https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+    }
+
+6.
+  static getDerivedStateFromProps(props, state) {
+        // return the new, updated state based upon the props
+        // https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+        // https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+    }
+
+
+
+ 7.    getSnapshotBeforeUpdate() {
+        // create a backup of the current way things are
+        // https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
+    }
+*********************************************************************
+// const ProducComponent =product.map( pr=> <Product product={pr}/>)
+
+// if you just use     < ToDoItem alliteminoneprop ={item}  />   
+
+//then all array/OBJECT properties will be displayed only WHEN 
+//you write in ToDoItem.js component like this seperately 
+//<h1>{props.alliteminoneprop.text}       </h1>
+//<h2>  {props.alliteminoneprop.name}</h2>
+
+//OR
+
+//write like this in App.js 
+//naAAme={item.name}
+// AND in ToDoItem.js like this
+// <h2> {props.naAAme} <h2/>
+
+
+
+E.G 
+
+const ItemComponent =todoitem.map( (item) => <ToDoItem key={item.id} alliteminoneprop={item} /> )
+
+*******************************************************************
+
+/*
+const ProducComponent =product.map( pr=> 
+      <Product key={pr.id} name={pr.name} price={pr.price} description={pr.description}/>)
+           
+
+*****************************************************************
+
+   //Note ::
+            /*
+            If you are passing an array of object in an component as a property in App.js return part  ie.
+            App(){
+                return (
+                    <ContactCard 
+                    contact ={{name :"Harsh", imgUrl : "lol.png"}}/>
+                )
+            }
+
+
+            then in actual ContactCard.js you have to use {props.contact.name} otherwise l i t e r a l l y
+            use {props.name }
+            */
+
+
+*/
+
+*****************************************************************
+
+
+
+          //const jokesComponents=
+
+// JokesData.map(jk =>{
+//         return(
+//          <Joke key ={jk.id} question={jk.question} punchLine={jk.punchLine}/>
+//         )
+//             })
+
+        //jk is one-by-one data element from JokesData array object from JokesData.js 
+            //in one line without return 
+           // jokesData.map(joke =>  <Joke question={joke.question} punchLine={joke.punchLine} />)
+
+
+**************************************************************************
+
+in Class Component in the Component.js 
+render(props)  render will have props
+and {this.props.username}
+this is used 
+
+In function Component  no using {this} use this -->{props.username}
+import React from "react"
+
+// function App(props) {
+//     return (
+//         <div>
+//             <h1>{props.whatever}</h1>
+//         </div>
+//     )
+// }
+
+class App extends React.Component {
+    
+    yourMethodHere() {
+        
+    }
+    
+    render() {
+        return (
+            <div>
+                <h1>{this.props.whatever}</h1>
+            </div>
+        )
+    }
+}
+
+export default App
+**************************************************************
+
+Life Cycle methods
+
+// https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
+// https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes
+
+
+
+****************************************FORMS***********
+
+
+ handleChange(event) {
+        const {name, value} = event.target
+        this.setState({
+            [name]: value
+            /*
+            firstName : event.target.value
+            This works but or any other form filling it will overwtite firstName so
+            We are using const diff names instead of this.state.firstName
+            or
+            [event.target.name]: event.target.value i.e
+
+            [name property in input ]  : value property in input
+
+            ****
+            [event.target.name] represents the name="firstName" which is actually in this.setState
+            ***
+
+
+            [] becuase name property is a String 
+            <input type ="text"   name ="firstName" same name used in this.state.firstName
+            So it matches name=" " to event.target.name
+            Making it firstName : event.target.value 
+            */
+        })

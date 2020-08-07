@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Customer</title>
+    <script type="text/javascript">
+        function validate() {
+
+            var name = document.getElementById("name").value;
+            var addr = document.getElementById("addId").value;
+            var mobileNo = document.getElementById("mobile").value;
+            var userName = document.getElementById("UserName").value;
+            var password = document.getElementById("Password").value;  
+
+
+            if (name == "") {
+                document.getElementById("nameError").innerHTML = "Name cant be empty";
+                return false;
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+            }
+
+            if (addr == "") {
+                document.getElementById("addrError").innerHTML = "Address cant be empty";
+                return false;
+            } else {
+                document.getElementById("addrError").innerHTML = "";
+            }
+            	
+            	if (mobileNo == "") {
+            		document.getElementById("mobileError").innerHTML = "Mobile No.  cant be empty";
+            		return false;
+            	} else {
+            		document.getElementById("mobileError").innerHTML = "";
+            	}
+            	 if (isNaN(mobileNo)) {
+            		document.getElementById("mobileError").innerHTML = "Enter the Mobile number only";
+            		return false;
+            	} else {
+            		document.getElementById("mobileError").innerHTML = "";
+            	} 
+            	
+            	if (userName == "") {
+            		document.getElementById("UsernameError").innerHTML = "User Name cant be empty";
+            		return false;
+            	} else {
+            		document.getElementById("UsernameError").innerHTML = "";
+            	}
+
+            	if (password == "") {
+            		document.getElementById("passwordError").innerHTML = "Password  cant be empty";
+            		return false;
+            	} else {
+            		document.getElementById("passwordError").innerHTML = "";
+            	}
+            	
+            	if (password.length <=5 || password.length >=8) {
+            		document.getElementById("passwordError").innerHTML = "Password must be between 5 to 8 character long";
+            		return false;
+            	} else {
+            		document.getElementById("passwordError").innerHTML = "";
+            	}  
+
+            return true;
+
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset align="center">
+        <legend style="color: purple;">Add Customer</legend>
+        <div align="center">
+            <form onsubmit="return validate()" action="Success2.html">
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td>
+                            <input type="text" id="name" name="Name">
+                        </td>
+                        <td>
+                            <span id="nameError" style="color: red;">*</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Address</td>
+                        <td>
+                            <textarea rows="5" cols="20" id="addId" name="address"
+                                maxlength="250">Enter address here</textarea>
+                        </td>
+                        <td>
+                            <span id="addrError" style="color: red;">*</span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Mobile:</td>
+                        <td>
+                            <input type="text" name="mobile" id="mobile" pattern="[1-9]{1}[0-9]{9}"
+                                title="Please enter exactly 10 digits">
+                        </td>
+                        <td>
+                            <span id="mobileError" style="color: red;">*</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input type="email" id="email">
+                        </td>
+                        <td>
+                            <span id="emailError" style="color: red;">*</span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>UserName:</td>
+                        <td>
+                            <input type="text" id="UserName">
+                        </td>
+                        <td>
+                            <span id="UsernameError" style="color: red;">*</span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Enter Password</td>
+                        <td> <input type="password" id="Password"></td>
+                        <td> <span id="passwordError" style="color: red;">*</span></td>
+
+
+                    </tr>
+
+
+                </table>
+                <p align="center">
+
+                    <input type="submit" name="submit" value="ADD" />
+                    <input type="reset" name="reset" value="CLEAR" />
+
+                </p>
+
+            </form>
+        </div>
+    </fieldset>
+</body>
+
+</html>
+
+

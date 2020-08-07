@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+  /* Full Screen */
+}
+body:after {
+  content: "foo !== bar"
+}
+@media (min-width: 300px) {
+  .cool {
+    padding: 5%;
+  }
+}
